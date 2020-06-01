@@ -28,7 +28,7 @@ Since: May 31 2020
 */
 
 /*
-The main class to setup java gui
+The main class to setup java GUI
 */
 public class EvoPicture
 {
