@@ -3,10 +3,22 @@ import java.awt.image.BufferedImage;
 import java.awt.Color;
 import java.io.*;
 
+/*
+This class helps read an image in and maps it into a
+2d array, and can also create a image given a 2d array of
+Pixles.
+
+By: Matthew Sun
+Since: May 31 2020
+*/
 public class Image
 {
   private BufferedImage picture;
   private Pixel[][] pixelArray;
+  /*
+  This Constructor is used for reading the image, storing its data
+  as a 2d array of Pixels.
+  */
   public Image(String imageName)
   {
     System.out.print(imageName);
@@ -14,7 +26,7 @@ public class Image
       picture = ImageIO.read(new File(imageName));
     }catch (Exception e)
     {
-      System.out.println("Fuck you");
+      System.out.println("There was a error reading the picture");
     }
     pixelArray = new Pixel[picture.getHeight()][picture.getWidth()];
     for (int row = 0; row < pixelArray.length; row++)
@@ -31,14 +43,25 @@ public class Image
        //System.out.println(pixelArray[row][col].r + " " + pixelArray[row][col].g + " " + pixelArray[row][col].b);
      }
   }
+  /*
+  This Constructor is used for exporting a image
+  from a 2d array of Pixels
+  */
   public Image(Pixel[][] arrayIn)
   {
     pixelArray = arrayIn;
   }
+
+  /*
+  This method returns the 2d array that repersents the image
+  */
   public Pixel[][] getData()
   {
     return pixelArray;
   }
+  /*
+  This method exports the 2d array with a given name
+  */
   public void exportImage(String name)
   {
     try{
@@ -56,7 +79,7 @@ public class Image
       ImageIO.write(exportThis, "png", outputFile);
     }catch (IOException e)
     {
-      System.out.println("FUCK YOU");
+      System.out.println("There was a error exporting the Image");
     }
   }
 }
