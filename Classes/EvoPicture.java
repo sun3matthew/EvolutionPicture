@@ -195,7 +195,7 @@ Constructor to get the data from the two images using a image class
            }
           }
         }
-        repaint();
+        //repaint();
     }
   }
 
